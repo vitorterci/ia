@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toy Car E-commerce | Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         :root {
+            --primary-blue: #2563eb;
+            --secondary-blue: #3b82f6;
+            --accent-orange: #f97316;
+            --success-green: #22c55e;
+            --error-red: #ef4444;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+            --radius: 8px;
+            --radius-lg: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Top Bar */
+        
+        .top-bar {
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            padding: 10px 0;
+            font-size: 14px;
+            text-align: center;
+            color: white;
+        }
+        /* Header */
+        
+        header {
+            background-color: var(--bg-white);
+            padding: 10px 0;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        
+        .logo-icon {
+            color: var(--accent-orange);
+        }
+        
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            display: flex;
+            align-items: center;
+            background: var(--bg-light);
+            border-radius: 30px;
+            padding: 10px 20px;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        
+        .search-bar:focus-within {
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            border-color: var(--primary-blue);
+        }
+        
+        .search-bar input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+        
+        .search-bar i {
+            color: var(--text-gray);
+            margin-right: 12px;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .action-icon {
+            position: relative;
+            font-size: 20px;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 8px;
+            border-radius: 50%;
+        }
+        
+        .action-icon:hover {
+            color: var(--primary-blue);
+            background-color: rgba(37, 99, 235, 0.1);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--accent-orange);
+            color: white;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .show-carts-btn {
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 24px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .show-carts-btn:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        /* Navigation */
+        
+        nav {
+            background-color: var(--bg-white);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 32px;
+        }
+        
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+        
+        .nav-item a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-orange) 100%);
+            transition: var(--transition);
+        }
+        
+        .nav-item a:hover:after,
+        .nav-item a.active:after {
+            width: 100%;
+        }
+        
+        .nav-item a:hover,
+        .nav-item a.active {
+            color: var(--primary-blue);
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-dark);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+        /* Hero Section - MODIFICADA */
+        
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/banner.png');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            width: 100%;
+        }
+        
+        .hero-text {
+            flex: 1;
+            color: white;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            max-width: 500px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cta-button {
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cta-button:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cars-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .car-item {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            animation: float 4s ease-in-out infinite;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .car-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .car-item:nth-child(1) {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            animation-delay: 0s;
+        }
+        
+        .car-item:nth-child(2) {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, #fb923c 100%);
+            animation-delay: 0.5s;
+        }
+        
+        .car-item:nth-child(3) {
+            background: linear-gradient(135deg, var(--success-green) 0%, #4ade80 100%);
+            animation-delay: 1s;
+        }
+        
+        .car-item:nth-child(4) {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            animation-delay: 1.5s;
+        }
+        
+        .car-item i {
+            font-size: 40px;
+            color: white;
+        }
+        
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        /* Collections Section */
+        
+        .collections {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--text-dark);
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-orange) 100%);
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+        
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        
+        .collection-card {
+            background-color: var(--bg-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+        }
+        
+        .collection-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .card-image {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
+            position: relative;
+        }
+        
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .card-image i {
+            font-size: 60px;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-content {
+            padding: 24px;
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .card-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        /* Sidebar Cart */
+        
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100vh;
+            background-color: var(--bg-white);
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 24px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar.active {
+            right: 0;
+        }
+        
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .sidebar-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        .close-sidebar {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-gray);
+            transition: var(--transition);
+            padding: 4px;
+            border-radius: 4px;
+        }
+        
+        .close-sidebar:hover {
+            color: var(--error-red);
+            background-color: rgba(239, 68, 68, 0.1);
+        }
+        
+        .filters {
+            margin-bottom: 24px;
+        }
+        
+        .filter-group {
+            margin-bottom: 20px;
+        }
+        
+        .filter-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+            color: var(--text-dark);
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-option {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-option:hover,
+        .filter-option.active {
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            border-color: transparent;
+        }
+        
+        .cart-items {
+            margin-top: 24px;
+            flex-grow: 1;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .cart-item-image {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cart-item-image i {
+            font-size: 28px;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .cart-item-rating {
+            color: #fbbf24;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+        
+        .cart-item-price {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        
+        .add-btn {
+            background: linear-gradient(90deg, var(--success-green) 0%, #4ade80 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .add-btn:hover {
+            box-shadow: var(--shadow-lg);
+            transform: scale(1.1);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+            backdrop-filter: blur(4px);
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        /* Footer */
+        
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-orange) 100%);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .footer-links a {
+            color: #d1d5db;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        /* Responsive Styles */
+        
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                margin: 0 auto 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            .search-bar {
+                order: 3;
+                max-width: 100%;
+                margin-top: 16px;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-white);
+                padding: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                z-index: 99;
+                gap: 0;
+            }
+            .nav-item {
+                padding: 12px 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-item:last-child {
+                border-bottom: none;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+            .sidebar {
+                width: 320px;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .cars-container {
+                gap: 15px;
+            }
+            .car-item {
+                width: 80px;
+                height: 80px;
+            }
+            .car-item i {
+                font-size: 30px;
+            }
+            .sidebar {
+                width: 100%;
+                right: -100%;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-column h3:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        /* Hero Banner Styles */
+        
+        .hero-banner {
+            width: 100%;
+            max-width: 500px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            animation: float 4s ease-in-out infinite;
+            transition: var(--transition);
+        }
+        
+        .hero-banner:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        /* Responsive adjustments for the banner */
+        
+        @media (max-width: 992px) {
+            .hero-banner {
+                max-width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-banner {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-banner {
+                max-width: 100%;
+            }
+        }
+        
+        .back-btn {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            border: 2px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: var(--transition);
+        }
+        
+        .back-btn:hover {
+            background-color: var(--blue-cta);
+            color: #3b82f6;
+            border-color: var(--blue-cta);
+            transform: translateX(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .back-btn:hover::before {
+            left: 100%;
+        }
+        
+        .back-btn:active {
+            transform: translateX(-1px) scale(0.95);
+        }
+        
+        .back-btn i {
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .back-btn:hover i {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        Free shipping on all orders over $50! 🚗
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Botão Voltar apenas nas outras páginas -->
+                <a href="javascript:history.back()" class="back-btn" style="display:none;" id="backBtn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>
+</span>
+                </a>
+
+                <a href="index.html" class="logo">
+                    <i class="fas fa-car-side logo-icon"></i>
+                    <span>ToyCar</span>
+                </a>
+
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search car products...">
+                </div>
+
+
+                <div class="header-actions">
+
+                    <div class="action-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="action-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="action-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="action-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                    <button class="show-carts-btn" id="showCartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        Show carts
+                    </button>
+                </div>
+
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html" class="active">Home</a></li>
+                <li class="nav-item"><a href="#">About</a></li>
+                <li class="nav-item"><a href="venda.html">Shop</a></li>
+                <li class="nav-item"><a href="#">New Arrivals</a></li>
+                <li class="nav-item"><a href="#">Premium</a></li>
+                <li class="nav-item"><a href="#">Categories</a></li>
+                <li class="nav-item"><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+
+
+    <!-- Hero Section MODIFICADA -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Explore Our Collection of Amazing Toy Cars</h1>
+                    <p class="hero-subtitle">Discover premium quality toy cars for collectors and enthusiasts. Guaranteed fun for all ages!</p>
+                    <button class="cta-button">
+                    Shop Now
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                </div>
+                <div class="hero-image">
+                    <div class="cars-container">
+                        <div class="car-item">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="car-item">
+                            <i class="fas fa-truck-pickup"></i>
+                        </div>
+                        <div class="car-item">
+                            <i class="fas fa-taxi"></i>
+                        </div>
+                        <div class="car-item">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Collections Section -->
+    <section class="collections">
+        <div class="container">
+            <h2 class="section-title">Featured Collections</h2>
+            <div class="collections-grid">
+                <!-- Collection 1 -->
+                <div class="collection-card">
+                    <div class="card-image">
+                        <span class="card-badge">NEW</span>
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Classic Collection</h3>
+                        <div class="card-price">$61.99</div>
+                    </div>
+                </div>
+
+                <!-- Collection 2 -->
+                <div class="collection-card">
+                    <div class="card-image">
+                        <span class="card-badge">PREMIUM</span>
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Rare Collection</h3>
+                        <div class="card-price">$61.99</div>
+                    </div>
+                </div>
+
+                <!-- Collection 3 -->
+                <div class="collection-card">
+                    <div class="card-image">
+                        <span class="card-badge">POPULAR</span>
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Fun Pink Racers</h3>
+                        <div class="card-price">$30.99</div>
+                    </div>
+                </div>
+
+                <!-- Collection 4 -->
+                <div class="collection-card">
+                    <div class="card-image">
+                        <span class="card-badge">EXCLUSIVE</span>
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Hidden Collectors</h3>
+                        <div class="card-price">$99.99</div>
+                    </div>
+                </div>
+
+                <!-- Collection 5 -->
+                <div class="collection-card">
+                    <div class="card-image">
+                        <span class="card-badge">LIMITED</span>
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Special Edition</h3>
+                        <div class="card-price">$39.99</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ToyCar</h3>
+                    <div class="footer-links">
+                        <a href="#">About Us</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Press</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <div class="footer-links">
+                        <a href="venda.html">All Products</a>
+                        <a href="#">New Arrivals</a>
+                        <a href="#">Premium Collection</a>
+                        <a href="#">Sale</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <div class="footer-links">
+                        <a href="#">FAQ</a>
+                        <a href="#">Shipping & Returns</a>
+                        <a href="#">Size Guide</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <div class="footer-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Pinterest</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 ToyCar. All rights reserved. Designed with ❤️ for car enthusiasts.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sidebar Cart -->
+    <div class="overlay" id="overlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">Shopping Cart</h2>
+            <button class="close-sidebar" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <span class="filter-title">Color</span>
+                <div class="filter-options">
+                    <button class="filter-option active">All</button>
+                    <button class="filter-option">Red</button>
+                    <button class="filter-option">Blue</button>
+                    <button class="filter-option">Green</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-title">Filter</span>
+                <div class="filter-options">
+                    <button class="filter-option active">All</button>
+                    <button class="filter-option">New</button>
+                    <button class="filter-option">Popular</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-title">Price</span>
+                <div class="filter-options">
+                    <button class="filter-option active">All</button>
+                    <button class="filter-option">$0-50</button>
+                    <button class="filter-option">$50-100</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-items">
+            <!-- Cart Item 1 -->
+            <div class="cart-item">
+                <div class="cart-item-image">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="cart-item-details">
+                    <h3 class="cart-item-title">Race Cars</h3>
+                    <div class="cart-item-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="cart-item-price">$49.99</div>
+                </div>
+                <button class="add-btn" data-id="1">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+            <!-- Cart Item 2 -->
+            <div class="cart-item">
+                <div class="cart-item-image">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="cart-item-details">
+                    <h3 class="cart-item-title">Best Sellers</h3>
+                    <div class="cart-item-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="cart-item-price">$59.99</div>
+                </div>
+                <button class="add-btn" data-id="2">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+            <!-- Cart Item 3 -->
+            <div class="cart-item">
+                <div class="cart-item-image">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="cart-item-details">
+                    <h3 class="cart-item-title">Favourites</h3>
+                    <div class="cart-item-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="cart-item-price">$39.99</div>
+                </div>
+                <button class="add-btn" data-id="3">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const cartIcon = document.getElementById('cartIcon');
+        const showCartBtn = document.getElementById('showCartBtn');
+        const sidebar = document.getElementById('sidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const overlay = document.getElementById('overlay');
+        const cartCount = document.getElementById('cartCount');
+        const addButtons = document.querySelectorAll('.add-btn');
+        const filterOptions = document.querySelectorAll('.filter-option');
+
+        // Toggle mobile menu
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+
+        // Toggle sidebar cart
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+        }
+
+        cartIcon.addEventListener('click', toggleSidebar);
+        showCartBtn.addEventListener('click', toggleSidebar);
+        closeSidebar.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+
+        // Add to cart functionality
+        let count = 0;
+
+        addButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                count++;
+                cartCount.textContent = count;
+
+                // Add animation to cart icon
+                cartIcon.classList.add('animate');
+                setTimeout(() => {
+                    cartIcon.classList.remove('animate');
+                }, 500);
+            });
+        });
+
+        // Filter options
+        filterOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove active class from all options in the same group
+                const parentGroup = option.closest('.filter-options');
+                parentGroup.querySelectorAll('.filter-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+
+                // Add active class to clicked option
+                option.classList.add('active');
+            });
+        });
+
+        // Add animation class to cart icon
+        cartIcon.addEventListener('click', () => {
+            cartIcon.classList.add('animate');
+            setTimeout(() => {
+                cartIcon.classList.remove('animate');
+            }, 500);
+        });
+    </script>
+    <script src="style.js"></script>
+</body>
+
+</html>
